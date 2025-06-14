@@ -26,16 +26,15 @@
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #f1f5f9;
+    @apply bg-slate-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
-    border-radius: 9999px;
+    @apply bg-slate-300 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #94a3b8;
+    @apply bg-slate-400;
   }
 
   *:focus {
@@ -68,4 +67,15 @@
   .loading-bar {
     @apply fixed top-0 left-0 right-0 h-1 z-50 bg-gradient-to-r from-violet-500 via-emerald-500 to-rose-500 animate-pulse;
   }
+}
+
+/* Custom keyframes for animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
