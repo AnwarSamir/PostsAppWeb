@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -24,6 +25,9 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
     <html lang="en">
       <head>
@@ -33,6 +37,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        {/* Global Top Loading Bar */}
+        {isLoading && (
+          <div className="global-top-loader">
+            <div className="loading-progress-bar"></div>
+          </div>
+        )}
+        
         {children}
         <ScrollRestoration />
         <Scripts />

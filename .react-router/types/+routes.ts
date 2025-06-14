@@ -32,12 +32,12 @@ type RouteFiles = {
     id: "features/home";
     page: "/";
   };
-  "features/posts.tsx": {
-    id: "features/posts";
+  "features/posts/posts.tsx": {
+    id: "features/posts/posts";
     page: "/posts";
   };
-  "features/post.tsx": {
-    id: "features/post";
+  "features/post/post.tsx": {
+    id: "features/post/post";
     page: "/posts/:id";
   };
 };

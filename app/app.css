@@ -1,15 +1,65 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-slate-50 min-h-screen font-body text-slate-900 antialiased;
+  }
+
+  ::selection {
+    @apply bg-violet-200 text-violet-900;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+
+  *:focus {
+    @apply outline-2 outline-violet-500/50 outline-offset-2;
+  }
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@layer components {
+  /* Glassmorphism card component */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  /* Gradient text component */
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-600 to-emerald-600 bg-clip-text text-transparent;
+  }
+
+  /* Floating animation component */
+  .floating {
+    @apply animate-float;
+  }
+
+  /* Modern button component */
+  .btn-modern {
+    @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  /* Loading bar */
+  .loading-bar {
+    @apply fixed top-0 left-0 right-0 h-1 z-50 bg-gradient-to-r from-violet-500 via-emerald-500 to-rose-500 animate-pulse;
   }
 }
