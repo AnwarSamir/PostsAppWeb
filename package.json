@@ -6,7 +6,9 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "lint": "eslint .",
+    "test": "jest"
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
@@ -28,9 +30,5 @@
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
     "vite-tsconfig-paths": "^5.1.4"
-  },
-  "scripts": {
-  "lint": "eslint .",
-  "test": "jest"
-}
+  }
 }
