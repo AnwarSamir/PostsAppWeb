@@ -8,7 +8,7 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "compilerOptions": {
     "module": "ESNext",
