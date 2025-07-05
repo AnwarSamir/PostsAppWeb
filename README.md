@@ -64,6 +64,53 @@ The containerized application can be deployed to any platform that supports Dock
 - Fly.io
 - Railway
 
+### Kubernetes Deployment (GKE)
+
+This repository includes Kubernetes configuration files for deploying to Google Kubernetes Engine (GKE).
+
+#### Prerequisites
+
+- Google Cloud Platform account
+- Google Kubernetes Engine cluster
+- `kubectl` CLI
+- `kustomize` CLI
+
+#### Configuration Files
+
+The Kubernetes configuration files are located in the `k8s` directory:
+
+- `deployment.yml`: Defines the deployment configuration
+- `service.yml`: Defines the service and ingress configuration
+- `kustomization.yml`: Defines the base kustomization
+
+Environment-specific configurations are in the `k8s/overlays` directory:
+
+- `dev`: Development environment configuration
+- `prod`: Production environment configuration
+
+#### Deployment
+
+To deploy to the development environment:
+
+```bash
+kubectl apply -k k8s/overlays/dev
+```
+
+To deploy to the production environment:
+
+```bash
+kubectl apply -k k8s/overlays/prod
+```
+
+#### CI/CD
+
+This repository includes a GitHub Actions workflow for continuous deployment to GKE. The workflow is defined in `.github/workflows/deploy-gke.yml`.
+
+To use the workflow, you need to set the following secrets in your GitHub repository:
+
+- `GCP_PROJECT_ID`: Your Google Cloud Platform project ID
+- `GCP_SA_KEY`: Your Google Cloud Platform service account key (JSON)
+
 ### DIY Deployment
 
 If you're familiar with deploying Node applications, the built-in app server is production-ready.
